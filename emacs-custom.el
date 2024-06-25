@@ -3,6 +3,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(browse-url-browser-function 'eww-browse-url)
  '(custom-file "~/.emacs.d/emacs-custom.el")
  '(indent-tabs-mode nil)
  '(initial-frame-alist '((fullscreen . maximized)))
