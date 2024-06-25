@@ -37,12 +37,18 @@
 ;; Elfeed's feed list
 (load "~/.emacs.d/feeds.el")
 
-(require 'org-roam)
-(require 'org-journal)
 (require 'evil)
 (evil-mode t)
-;; Automatically keep org-roam session in sync
-;; (org-roam-db-autosync-mode)
+
+;; Don't use vi keys
+(let ((modes '(special-mode
+               Info-mode
+               help-mode
+               message-buffer-mode
+               elfeed-search-mode
+               elfeed-show-mode)))
+  (dolist (mode modes)
+    (evil-set-initial-state mode 'emacs)))
 
 (if (eq system-type 'windows-nt)
     (setq org-directory "D:/Projects/Writings")
