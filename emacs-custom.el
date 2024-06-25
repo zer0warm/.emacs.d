@@ -4,6 +4,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(custom-file "~/.emacs.d/emacs-custom.el")
+ '(indent-tabs-mode nil)
  '(initial-frame-alist '((fullscreen . maximized)))
  '(org-journal-date-format "%A, %d %B %Y")
  '(org-journal-date-prefix "")
