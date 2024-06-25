@@ -5,6 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(browse-url-browser-function 'eww-browse-url)
  '(custom-file "~/.emacs.d/emacs-custom.el")
+ '(fill-column 80)
  '(indent-tabs-mode nil)
  '(initial-frame-alist '((fullscreen . maximized)))
  '(org-journal-date-format "%A, %d %B %Y")

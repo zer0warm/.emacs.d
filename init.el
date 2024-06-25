@@ -6,6 +6,7 @@
 (global-hl-line-mode 1)
 (visual-line-mode 1)
 (column-number-mode 1)
+(auto-fill-mode 1)
 
 (defun edit-init-el ()
   "Find and open init.el"
@@ -71,3 +72,8 @@
 (keymap-global-set "C-c r d c t" #'org-roam-dailies-capture-today)
 (keymap-global-set "C-c r d g t" #'org-roam-dailies-goto-today)
 (keymap-global-set "C-c e" #'elfeed)
+(keymap-global-set "C-c w" (lambda ()
+                             "Center 80 columns."
+                             (interactive)
+                             (let ((margin (/ (- (frame-width) 80) 2)))
+                               (set-window-margins nil margin margin))))
