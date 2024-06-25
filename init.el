@@ -3,7 +3,9 @@
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
 (set-message-beep 'silent)
-(global-hl-line-mode)
+(global-hl-line-mode 1)
+(visual-line-mode 1)
+(column-number-mode 1)
 
 (defun edit-init-el ()
   "Find and open init.el"
