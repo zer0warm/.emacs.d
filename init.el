@@ -50,12 +50,18 @@
   (dolist (mode modes)
     (evil-set-initial-state mode 'emacs)))
 
+(require 'org-roam)
+(require 'org-journal)
+
 (if (eq system-type 'windows-nt)
     (setq org-directory "D:/Projects/Writings")
   (setq org-directory "~/writings"))
 
 (setq org-roam-directory (concat org-directory "/roam")
       org-journal-dir (concat org-directory "/journal"))
+
+;; Automatically keep org-roam session in sync
+(org-roam-db-autosync-mode)
 
 (keymap-global-set "C-c j j" #'org-journal-new-entry)
 (keymap-global-set "C-c r n i" #'org-roam-node-insert)
