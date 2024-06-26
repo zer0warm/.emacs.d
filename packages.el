@@ -36,3 +36,14 @@
                  elfeed-show-mode)))
   (dolist (mode modes)
       (evil-set-initial-state mode 'emacs))))
+
+(use-package catppuccin-theme
+  :config
+  (when (and (eq system-type 'windows-nt)
+             (eq (w32-read-registry
+                  'HKCU
+                  "SOFTWARE/Microsoft/Windows/CurrentVersion/Themes/Personalize"
+                  "AppsUseLightTheme")
+                 0))
+    (setq catppuccin-flavor 'macchiato)
+    (catppuccin-reload)))
