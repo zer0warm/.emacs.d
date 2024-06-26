@@ -3,6 +3,7 @@
 
 (straight-use-package 'use-package)
 (setq straight-use-package-by-default t)
+(setq use-package-always-demand t)
 
 (use-package elfeed
   :init
@@ -15,7 +16,7 @@
   :bind (("C-c o j j" . org-journal-new-entry)))
 
 (use-package org-roam
-  :init
+  :config
   (org-roam-db-autosync-mode)
   :custom
   (org-roam-directory (concat (file-name-as-directory org-directory) "roam"))
@@ -25,17 +26,18 @@
          ("C-c o r d g t" . org-roam-dailies-goto-today)))
 
 (use-package evil
-  :init
-  ;; Don't use vi keys
-  (evil-mode)
+  :config
+  ;; Don't use vi keys on these modes
   (let ((modes '(special-mode
                  Info-mode
                  help-mode
                  message-buffer-mode
                  elfeed-search-mode
                  elfeed-show-mode)))
-  (dolist (mode modes)
-      (evil-set-initial-state mode 'emacs))))
+    (dolist (mode modes)
+      (evil-set-initial-state mode 'emacs)))
+  ;; Turn it on
+  (evil-mode))
 
 (use-package catppuccin-theme
   :config
