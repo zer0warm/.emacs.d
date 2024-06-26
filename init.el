@@ -34,44 +34,16 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+(if (eq system-type 'windows-nt)
+    (setq org-directory "D:/Projects/Writings")
+  (setq org-directory "~/writings"))
+
 ;; Package list
 (load "~/.emacs.d/packages.el")
 
 ;; Elfeed's feed list
 (load "~/.emacs.d/feeds.el")
 
-(require 'evil)
-(evil-mode t)
-
-;; Don't use vi keys
-(let ((modes '(special-mode
-               Info-mode
-               help-mode
-               message-buffer-mode
-               elfeed-search-mode
-               elfeed-show-mode)))
-  (dolist (mode modes)
-    (evil-set-initial-state mode 'emacs)))
-
-(require 'org-roam)
-(require 'org-journal)
-
-(if (eq system-type 'windows-nt)
-    (setq org-directory "D:/Projects/Writings")
-  (setq org-directory "~/writings"))
-
-(setq org-roam-directory (concat org-directory "/roam")
-      org-journal-dir (concat org-directory "/journal"))
-
-;; Automatically keep org-roam session in sync
-(org-roam-db-autosync-mode)
-
-(keymap-global-set "C-c j j" #'org-journal-new-entry)
-(keymap-global-set "C-c r n i" #'org-roam-node-insert)
-(keymap-global-set "C-c r n f" #'org-roam-node-find)
-(keymap-global-set "C-c r d c t" #'org-roam-dailies-capture-today)
-(keymap-global-set "C-c r d g t" #'org-roam-dailies-goto-today)
-(keymap-global-set "C-c e" #'elfeed)
 (keymap-global-set "C-c w" (lambda ()
                              "Center 80 columns."
                              (interactive)
