@@ -2,11 +2,14 @@
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
-(set-message-beep 'silent)
+
 (global-hl-line-mode 1)
 (visual-line-mode 1)
 (column-number-mode 1)
 (auto-fill-mode 1)
+
+(when (eq system-type 'windows-nt)
+      (set-message-beep 'silent))
 
 (defun edit-init-el ()
   "Find and open init.el"
