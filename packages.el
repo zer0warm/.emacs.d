@@ -5,6 +5,8 @@
 (setq straight-use-package-by-default t)
 
 (use-package elfeed
+  :init
+  (setq-default elfeed-search-filter "@3-months-ago +unread -news")
   :bind (("C-c e" . elfeed)))
 
 (use-package org-journal
@@ -27,10 +29,10 @@
   ;; Don't use vi keys
   (evil-mode)
   (let ((modes '(special-mode
-              Info-mode
-              help-mode
-              message-buffer-mode
-              elfeed-search-mode
-              elfeed-show-mode)))
+                 Info-mode
+                 help-mode
+                 message-buffer-mode
+                 elfeed-search-mode
+                 elfeed-show-mode)))
   (dolist (mode modes)
       (evil-set-initial-state mode 'emacs))))
