@@ -8,6 +8,8 @@
 (require 'my-util)
 
 (use-package elfeed
+  :custom-face
+  (elfeed-search-title-face ((t (:foreground "#000" :family "Cascadia Code"))))
   :init
   (setq-default elfeed-search-filter "@3-months-ago +unread -news")
   :bind (("C-c e" . elfeed)))
@@ -15,6 +17,9 @@
 (use-package org-journal
   :custom
   (org-journal-dir (concat (file-name-as-directory org-directory) "journal"))
+  (org-journal-date-format "%A, %d %B %Y")
+  (org-journal-date-prefix "")
+  (org-journal-time-prefix "* ")
   :bind (("C-c o j j" . org-journal-new-entry)))
 
 (use-package org-roam

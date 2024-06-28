@@ -8,9 +8,6 @@
  '(fill-column 80)
  '(indent-tabs-mode nil)
  '(initial-frame-alist '((fullscreen . maximized)))
- '(org-journal-date-format "%A, %d %B %Y")
- '(org-journal-date-prefix "")
- '(org-journal-time-prefix "* ")
  '(package-enable-at-startup nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -18,6 +15,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :extend nil :stipple nil :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight regular :height 140 :width normal :foundry "outline" :family "Fira Code"))))
- '(elfeed-search-title-face ((t (:foreground "#000" :family "Cascadia Code"))))
  '(fixed-pitch ((t (:family "Fira Code"))))
  '(variable-pitch ((t (:weight semi-bold :foundry "outline" :family "Lora")))))
