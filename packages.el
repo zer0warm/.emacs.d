@@ -5,6 +5,8 @@
 (setq straight-use-package-by-default t)
 (setq use-package-always-demand t)
 
+(require 'my-util)
+
 (use-package elfeed
   :init
   (setq-default elfeed-search-filter "@3-months-ago +unread -news")
@@ -41,11 +43,6 @@
 
 (use-package catppuccin-theme
   :config
-  (when (and (eq system-type 'windows-nt)
-             (eq (w32-read-registry
-                  'HKCU
-                  "SOFTWARE/Microsoft/Windows/CurrentVersion/Themes/Personalize"
-                  "AppsUseLightTheme")
-                 0))
+  (when (my-windows-use-dark-theme)
     (setq catppuccin-flavor 'macchiato)
     (catppuccin-reload)))

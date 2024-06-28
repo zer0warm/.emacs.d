@@ -9,7 +9,7 @@
 (auto-fill-mode 1)
 
 (when (eq system-type 'windows-nt)
-      (set-message-beep 'silent))
+  (set-message-beep 'silent))
 
 (defun edit-init-el ()
   "Find and open init.el"
@@ -37,6 +37,8 @@
       (eval-print-last-sexp)))
   (load bootstrap-file nil 'nomessage))
 
+(add-to-list 'load-path "~/.emacs.d/lisp")
+
 (if (eq system-type 'windows-nt)
     (setq org-directory "D:/Projects/Writings")
   (setq org-directory "~/writings"))
@@ -47,8 +49,4 @@
 ;; Elfeed's feed list
 (load "~/.emacs.d/feeds.el")
 
-(keymap-global-set "C-c w" (lambda ()
-                             "Center 80 columns."
-                             (interactive)
-                             (let ((margin (/ (- (frame-width) 80) 2)))
-                               (set-window-margins nil margin margin))))
+(keymap-global-set "C-c w" #'my-center-current-buffer)
