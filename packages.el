@@ -28,6 +28,8 @@
          ("C-c o r d g t" . org-roam-dailies-goto-today)))
 
 (use-package evil
+  :init
+  (setq evil-want-C-u-scroll t)
   :config
   ;; Don't use vi keys on these modes
   (let ((modes '(special-mode
@@ -38,6 +40,10 @@
                  elfeed-show-mode)))
     (dolist (mode modes)
       (evil-set-initial-state mode 'emacs)))
+  ;; Mappings
+  (evil-set-leader 'normal (kbd "SPC"))
+  (evil-define-key 'normal 'global
+    (kbd "<leader>u") #'universal-argument)
   ;; Turn it on
   (evil-mode))
 
