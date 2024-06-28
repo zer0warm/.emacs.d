@@ -14,6 +14,11 @@
   (setq-default elfeed-search-filter "@3-months-ago +unread -news")
   :bind (("C-c e" . elfeed)))
 
+(use-package elfeed-org
+  :config
+  (setq rmh-elfeed-org-files (list (expand-file-name "feeds.org" org-directory)))
+  (elfeed-org))
+
 (use-package org-journal
   :custom
   (org-journal-dir (concat (file-name-as-directory org-directory) "journal"))
@@ -31,6 +36,12 @@
          ("C-c o r n i" . org-roam-node-insert)
          ("C-c o r d c t" . org-roam-dailies-capture-today)
          ("C-c o r d g t" . org-roam-dailies-goto-today)))
+
+(use-package catppuccin-theme
+  :config
+  (when (my-windows-use-dark-theme)
+    (setq catppuccin-flavor 'macchiato)
+    (catppuccin-reload)))
 
 (use-package evil
   :init
@@ -51,9 +62,3 @@
     (kbd "<leader>u") #'universal-argument)
   ;; Turn it on
   (evil-mode))
-
-(use-package catppuccin-theme
-  :config
-  (when (my-windows-use-dark-theme)
-    (setq catppuccin-flavor 'macchiato)
-    (catppuccin-reload)))

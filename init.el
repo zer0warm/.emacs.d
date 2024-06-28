@@ -46,7 +46,4 @@
 ;; Package list
 (load "~/.emacs.d/packages.el")
 
-;; Elfeed's feed list
-(load "~/.emacs.d/feeds.el")
-
 (keymap-global-set "C-c w" #'my-center-current-buffer)
