@@ -8,8 +8,12 @@
 (column-number-mode 1)
 (auto-fill-mode 1)
 
-(when (eq system-type 'windows-nt)
-  (set-message-beep 'silent))
+(if (eq system-type 'windows-nt)
+    (progn (set-message-beep 'silent)
+           (setq org-directory "D:/Projects/Writings"
+                 org-agenda-files (list "D:/Projects/Writings")))
+  (progn (setq org-directory "~/writings"
+               org-agenda-files (list "~/writings"))))
 
 (defun edit-init-el ()
   "Find and open init.el"
@@ -38,10 +42,6 @@
   (load bootstrap-file nil 'nomessage))
 
 (add-to-list 'load-path "~/.emacs.d/lisp")
-
-(if (eq system-type 'windows-nt)
-    (setq org-directory "D:/Projects/Writings")
-  (setq org-directory "~/writings"))
 
 ;; Package list
 (load "~/.emacs.d/packages.el")
