@@ -4,9 +4,7 @@
 (scroll-bar-mode 0)
 
 (global-hl-line-mode 1)
-(visual-line-mode 1)
 (column-number-mode 1)
-(auto-fill-mode 1)
 
 (if (eq system-type 'windows-nt)
     (progn (set-message-beep 'silent)
@@ -58,3 +56,5 @@
 
 ;; Hooks
 (add-hook 'org-capture-mode-hook #'evil-insert-state)
+(add-hook 'emacs-lisp-mode-hook #'visual-line-mode)
+(add-hook 'org-mode-hook #'visual-line-mode)
