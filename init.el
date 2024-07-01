@@ -10,10 +10,11 @@
 
 (if (eq system-type 'windows-nt)
     (progn (set-message-beep 'silent)
-           (setq org-directory "D:/Projects/Writings"
-                 org-agenda-files (list "D:/Projects/Writings")))
-  (progn (setq org-directory "~/writings"
-               org-agenda-files (list "~/writings"))))
+           (setq org-directory "D:/Projects/Writings"))
+  (setq org-directory "~/writings"))
+
+(setq org-agenda-files (list org-directory)
+      org-default-notes-file (expand-file-name "notes.org" org-directory))
 
 (defun edit-init-el ()
   "Find and open init.el"
@@ -46,4 +47,14 @@
 ;; Package list
 (load "~/.emacs.d/packages.el")
 
+;; Keymaps
 (keymap-global-set "C-c w" #'my-center-current-buffer)
+
+;; Capture templates
+(setq org-capture-templates
+      '(("t" "Todo"
+         entry (file+headline "notes.org" "Tasks")
+         "* TODO %?\n  %u")))
+
+;; Hooks
+(add-hook 'org-capture-mode-hook #'evil-insert-state)
