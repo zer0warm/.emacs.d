@@ -2,7 +2,6 @@
 (menu-bar-mode 0)
 (tool-bar-mode 0)
 (scroll-bar-mode 0)
-
 (global-hl-line-mode 1)
 (column-number-mode 1)
 
@@ -47,6 +46,9 @@
 
 ;; Keymaps
 (keymap-global-set "C-c w" #'my-center-current-buffer)
+(keymap-global-set "C-c o a" #'org-agenda)
+(keymap-global-set "C-c o c" #'org-capture)
+(keymap-global-set "C-c o l" #'org-store-link)
 
 ;; Capture templates
 (setq org-capture-templates
@@ -58,3 +60,5 @@
 (add-hook 'org-capture-mode-hook #'evil-insert-state)
 (add-hook 'emacs-lisp-mode-hook #'visual-line-mode)
 (add-hook 'org-mode-hook #'visual-line-mode)
+
+(setq initial-buffer-choice #'org-agenda-list)
