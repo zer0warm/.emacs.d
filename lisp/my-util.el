@@ -10,6 +10,16 @@ nil otherwise."
       t
     nil))
 
+(defun my-macos-use-dark-theme ()
+  "Query defaults and check if macOS is using dark theme. Returns t if it is,
+nil otherwise."
+  (if (and (eq system-type 'darwin)
+           (string-equal (shell-command-to-string
+                          "defaults read -g AppleInterfaceStyle 2>/dev/null")
+                         "Dark\n"))
+      t
+    nil))
+
 (defun my-center-current-buffer ()
   "Center the current buffer in the current frame, limiting width to
 `fill-column'."

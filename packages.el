@@ -39,7 +39,8 @@
 
 (use-package catppuccin-theme
   :config
-  (when (my-windows-use-dark-theme)
+  (when (or (my-windows-use-dark-theme)
+            (my-macos-use-dark-theme))
     (setq catppuccin-flavor 'macchiato)
     (catppuccin-reload)))
 
