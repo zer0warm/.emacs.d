@@ -8,6 +8,7 @@
  '(fill-column 80)
  '(indent-tabs-mode nil)
  '(initial-frame-alist '((fullscreen . maximized)))
+ '(native-comp-async-report-warnings-errors 'silent)
  '(package-enable-at-startup nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
