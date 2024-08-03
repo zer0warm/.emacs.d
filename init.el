@@ -62,3 +62,7 @@
 (add-hook 'org-mode-hook #'visual-line-mode)
 
 (setq initial-buffer-choice #'org-agenda-list)
+
+;; On my mac 140 is small
+(when (eq system-type 'darwin)
+  (set-face-attribute 'default nil :height 180))
