@@ -7,6 +7,10 @@
 
 (require 'my-util)
 
+(use-package org)
+(use-package org-pomodoro)
+(use-package olivetti)
+
 (use-package elfeed
   :custom-face
   (elfeed-search-title-face ((t (:foreground "#000" :family "Cascadia Code"))))
