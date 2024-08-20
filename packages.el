@@ -7,7 +7,10 @@
 
 (require 'my-util)
 
-(use-package org)
+(use-package org
+  :config
+  (require 'ox-md))
+
 (use-package org-pomodoro)
 (use-package olivetti)
 
@@ -19,6 +22,7 @@
   :bind (("C-c e" . elfeed)))
 
 (use-package elfeed-org
+  :after (elfeed org)
   :config
   (setq rmh-elfeed-org-files (list (expand-file-name "feeds.org" org-directory)))
   (elfeed-org))
