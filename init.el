@@ -49,13 +49,25 @@
 (keymap-global-set "C-c o a" #'org-agenda)
 (keymap-global-set "C-c o c" #'org-capture)
 (keymap-global-set "C-c o l" #'org-store-link)
+(keymap-global-set "C-c o b"
+                   (lambda ()
+                     (interactive)
+                     (dired org-directory)))
+(keymap-global-set "C-c o s"
+                   (lambda ()
+                     (interactive)
+                     (find-file (expand-file-name "short.org" org-directory))))
 
 ;; Capture templates
 (setq org-capture-templates
       '(("t" "Todo"
          entry (file+headline "notes.org" "Tasks")
-         "* TODO %?\n  %u")))
-
+         "* TODO %?\n  %u")
+        ("s" "Short story"
+         entry
+         (file+headline "short.org"
+                        (lambda () (format-time-string "%a, %d %b %Y")))
+         "** %?")))
 ;; Hooks
 (add-hook 'org-capture-mode-hook #'evil-insert-state)
 (add-hook 'emacs-lisp-mode-hook #'visual-line-mode)
