@@ -20,6 +20,15 @@ nil otherwise."
       t
     nil))
 
+(defun my-linux-use-dark-theme ()
+  "Query GTK settings and use its value. Returns t if true, nil otherwise."
+  (if (and (eq system-type 'gnu/linux)
+           (string-equal (shell-command-to-string
+                          "gtk-query-settings | grep 'prefer-dark-theme' | grep -o TRUE")
+                         "TRUE\n"))
+      t
+    nil))
+
 (defun my-center-current-buffer ()
   "Center the current buffer in the current frame, limiting width to
 `fill-column'."
